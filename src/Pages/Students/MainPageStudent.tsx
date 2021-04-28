@@ -5,6 +5,7 @@ const  MainPageStudent  = () => {
         return(
             <div>
                 <NavigationBar/>
+                
             </div>
         )
 }
