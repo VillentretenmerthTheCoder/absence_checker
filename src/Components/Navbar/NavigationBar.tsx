@@ -23,7 +23,7 @@ const  NavigationBar  = () => {
         return(
         <div>
             <Navbar className={styles.NavigationBar}  dark expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand href="/">Absence Checker</NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>
                 <Nav className="mr-auto" navbar>
