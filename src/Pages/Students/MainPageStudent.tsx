@@ -1,51 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, Container, Row } from 'reactstrap';
 import Footer from '../../Components/Footer/Footer';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from '../../Components/Sidebar/Sidebar';
+import TableComp from '../../Components/Table/Table';
 
 const  MainPageStudent  = () => {
 
+   
+    useEffect(() => {
+            document.body.style.backgroundColor = "#dee2e6";
+    })
+
         return(
-            <div>
-                <NavigationBar/>
-                <Container>
-                    <Row style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
-                        <h2>List of available courses</h2>                             
+            <div className={styles.Wrapper}>
+                                <NavigationBar/>
+
+                <Container fluid style={{padding: 0}}>
+                    <Row style={{padding: 0, margin: 0}}>                    
+                            <Sidebar/>
+                            <TableComp/>
                     </Row>
-                    <Row style={{display: 'flex', justifyContent: 'center'}} >
-                        <div className={styles.box_subject}>
-                            <FontAwesomeIcon style={{fontSize: 25}} icon={faDatabase} size="lg" />
-                            <h6 >Software Testing</h6>
-                            <Button > Code</Button>
-                            <Button> Stats</Button>
-
-                        </div>
-                   </Row>
-                   <Row style={{display: 'flex', justifyContent: 'center'}} >
-
-                   <div className={styles.box_subject}>
-                            <FontAwesomeIcon style={{fontSize: 25}} icon={faDatabase} size="lg" />
-                            <h6 >Software Testing</h6>
-                            <Button > Code</Button>
-                            <Button> Stats</Button>
-
-                        </div>
-                    </Row>
-
-                    <Row style={{display: 'flex', justifyContent: 'center'}} >
-                    <div className={styles.box_subject_active}>
-                            <FontAwesomeIcon style={{fontSize: 25}} icon={faDatabase} size="lg" />
-                            <h6 >Software Testing</h6>
-                            <Button > Code</Button>
-                            <Button> Stats</Button>
-                        </div>           
-                    </Row>
-
                 </Container>
-                <Footer/>
             </div>
         )
 }

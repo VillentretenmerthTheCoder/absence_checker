@@ -1,0 +1,30 @@
+.wrapper {
+    display: flex;
+    align-items: stretch;
+
+}
+
+
+.sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    height: 100vh;
+    position: relative;
+    left: 0;
+    top: 0;
+    padding: 0;
+    background-color: #3F3F3F;
+    h4{
+        margin-top: 100px;
+    }
+
+    ul{
+        list-style-type: none;
+
+        a{
+            color: #fff;
+            text-decoration: none;  
+        }
+    }
+}
+
