@@ -32,7 +32,7 @@ const TableComp = () => {
                         <th scope="row">3</th>
                         <td>Testing</td>
                         <td>Steffen</td>
-                        <td>...</td>
+                        <td> </td>
                         </tr>
                     </tbody>
                 </Table>

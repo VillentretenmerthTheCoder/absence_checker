@@ -4,6 +4,7 @@
     width: 100%;
 }
 
+
 .box_subject{
     width: 50%;
     height: 50px;
@@ -20,17 +21,72 @@
     } 
 
     h6{
-
         margin-top: 10px;
         margin-left: 30px;
         margin-right: 150px;
-
     }
 
-  
 
     .ButtonAction{
             margin-left: auto;
     }
 }
+
+.SubmitCodeWrapper{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    .BoxSubmit{
+        display: flex;
+        height: auto;
+        background-color: #3F3F3F;
+        justify-content: center;
+        justify-items: center;
+        align-content: center
+
+
+
+    }
+   
+
+    .CodeForm{
+        position: relative;
+        padding: 0; 
+        margin: 0; 
+        width: 75%;
+
+        .CodeButton{
+            margin-top: 50px;
+            margin-bottom: 30px;
+           width: 100%;
+    
+        }
+        label{
+            font-size: 24px;
+            text-align: center !important; 
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .CodeInput{
+            margin-top: 50px;
+            font-size: 36px;
+            height: 50px;
+            width: 100%;
+        }
+
+    }
+
+}
+.StudentStatistics{
+    margin-top: 10px;
+    width: 100%;
+    height: 400px;
+    background-color: red;
+    display: flex;
+}
+
+
 
