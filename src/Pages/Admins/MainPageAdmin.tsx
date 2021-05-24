@@ -35,7 +35,6 @@ const  MainPageAdmin  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <Sidebar/>
                         <TableComp cols={cols} data={data } onClick={() => console.log("AA")}  />
                     </Row>
                    

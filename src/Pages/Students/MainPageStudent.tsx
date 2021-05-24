@@ -9,19 +9,21 @@ import Sidebar from '../../Components/Sidebar/Sidebar';
 import TableComp from '../../Components/Table/Table';
 import { connect } from 'react-redux';
 import {fetchCourses, fetchEnrollments} from '../../Actions/Index'
+import Courses from '../../Models/Courses';
 
 const  MainPageStudent  = (props : any) => {
+    const openAttendance = (course : Courses) => props.history.push(`/student-submit/${course.course_id}`);
+
     useEffect(() => {
         props.fetchEnrollments();
         props.fetchCourses();
-        console.log(props.courses);
-        console.log(props.enrollments);
-        console.log(data);
+       /*  console.log(props.courses);
+        console.log(props.enrollments); */
         document.body.style.backgroundColor = "#dee2e6";
     })
     const cols = [
-        { key: 'Id', title: 'Id' },
-        { key: 'Teacher', title: 'Teacher' },
+        { key: 'course_id', title: 'Id' },
+        { key: 'course_name', title: 'Course' },
         { key: 'Subject', title: 'Subject' },
       ];
 
@@ -36,8 +38,7 @@ const  MainPageStudent  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <Sidebar/>
-                        <TableComp cols={cols} data={data} onClick={() => console.log("AA")}  />
+                        <TableComp cols={cols} data={props.courses} onClick={openAttendance}  />
                     </Row>
                 </Container>
             </div>

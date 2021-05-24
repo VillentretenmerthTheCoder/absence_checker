@@ -7,19 +7,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../../Components/Sidebar/Sidebar';
 import TableComp from '../../Components/Table/Table';
+import { Chart } from "react-google-charts";
 
 const  SubmitCodeStudent  = () => {
-   
     useEffect(() => {
             document.body.style.backgroundColor = "#dee2e6";
     })
-
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0, width: '100%'}}>    
-                            <Sidebar/>
                             <Container style={{position: 'relative'}} >
 
                                 <div className={styles.SubmitCodeWrapper}>
@@ -33,24 +31,37 @@ const  SubmitCodeStudent  = () => {
                                 </div>
                                 <h1 style={{marginTop: '100px', textAlign: 'center'}}>Statistics</h1>
                                 <div className={styles.StudentStatistics}>
-                                    <Row>
-                                        <Col >
-                                        <div className="graph">
-A
-                                        </div>
-                                        </Col>
-                                        <Col >
-                                        <div className="graph_info">
-                                            A
-                                        </div>
-                                        </Col>
-                                        <Col >
-                                        <div className="graph_filter">
-                                            A
-                                        </div>
-                                        </Col>
-                                    </Row>
-                                    
+                                    <Container>
+                                        <Row>
+                                            <Col >
+                                            <div className="graph">
+                                            <Chart
+                                                width={'600px'}
+                                                height={'400px'}
+                                                chartType="PieChart"
+                                                loader={<div>Loading Chart</div>}
+                                                data={[
+                                                    ['Status', 'Hours'],
+                                                    ['Activity', 24],
+                                                    ['Inactivity', 12],
+                                                   
+                                                ]}
+                                                options={{
+                                                    title: 'Student Status',
+                                                    backgroundColor: 'transparent'
+                                              
+                                                    // Just add this option
+                                                }}
+                                                />
+                                            </div>
+                                            </Col>
+                                            <Col >
+                                            <div className="graph_filter">
+                                                
+                                            </div>
+                                            </Col>
+                                        </Row>
+                                    </Container>
                                 </div>
                             </Container>
 
