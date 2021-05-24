@@ -12,3 +12,9 @@ export const fetchCourses = () => { return (dispatch) => {
     dispatch({type: 'FETCH_COURSES', payload: response.data})
     })
 }};
+
+export const fetchStudents = () => { return (dispatch) => {
+    azurehost.get('/student').then(response => {
+    dispatch({type: 'FETCH_STUDENTS', payload: response.data})
+    })
+}};

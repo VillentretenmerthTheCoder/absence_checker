@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Button, Col, Container, Form, Input, Label, Row } from 'reactstrap';
+import React, { useEffect, useState } from 'react';
+import { Button, Col, Container, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Form, Input, Label, Row } from 'reactstrap';
 import Footer from '../../Components/Footer/Footer';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
@@ -10,6 +10,9 @@ import TableComp from '../../Components/Table/Table';
 import { Chart } from "react-google-charts";
 
 const  SubmitCodeStudent  = () => {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
     useEffect(() => {
             document.body.style.backgroundColor = "#dee2e6";
     })
@@ -57,8 +60,21 @@ const  SubmitCodeStudent  = () => {
                                             </Col>
                                             
                                             <Col >
-                                            <div className="graph_filter">
-                                                A
+                                            <div className={styles.graph_filter}>
+                                                <h5>Search activity by period:</h5>
+                                            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                                                <DropdownToggle caret>
+                                                    Choose Period
+                                                </DropdownToggle>
+                                                <DropdownMenu>
+                                                    <DropdownItem header>24 hours</DropdownItem>
+                                                    <DropdownItem>One Week</DropdownItem>
+                                                    <DropdownItem text>One month</DropdownItem>
+                                                    <DropdownItem divider />
+                                                    <DropdownItem>This semester</DropdownItem>
+                                                    <DropdownItem>All Time</DropdownItem>
+                                                </DropdownMenu>
+                                                </Dropdown>
                                             </div>
                                             </Col>
                                         </Row>
