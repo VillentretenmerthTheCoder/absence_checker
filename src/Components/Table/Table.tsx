@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { Component,} from 'react';
 import { Table, Container, Button, Row } from 'reactstrap';
-
-const TableComp = () => {
+export type ListViewColumn = {
+    key: string;
+    title: string;
+  };
+  export type DataTableProps = {
+    cols: Array<ListViewColumn>;
+    data: Array<any>;
+    onClick: (row: any) => void;
+  };
+  
+class TableComp extends Component<DataTableProps>{
+    renderValue = (row: any, column: ListViewColumn) => {
+        const value = row[column.key];
+        return value;
+      };
+    rowClick = (row: any) => this.props.onClick && this.props.onClick(row);
+    render(){
     return(
         <Container style={{position: 'relative'}} >
             <div>
@@ -9,37 +24,29 @@ const TableComp = () => {
                 <Table hover style={{backgroundColor: 'white', marginTop: '40px'}}>
                     <thead>
                         <tr>
-                        <th>#</th>
-                        <th>Subject</th>
-                        <th>Teacher</th>
-                        <th>Actions</th>
+                        <th  scope="row"></th>
+                            {this.props.cols.map((col : any, index : any) => (
+                                <th>{col.title}</th>
+                            ))}
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">1</th>
-                        <td>DLS</td>
-                        <td>Andrea</td>
-                        <td>...</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">2</th>
-                        <td>Databases</td>
-                        <td>Tomas</td>
-                        <td>...</td>
-                        </tr>
-                        <tr>
-                        <th scope="row">3</th>
-                        <td>Testing</td>
-                        <td>Steffen</td>
-                        <td> </td>
-                        </tr>
+                        {this.props.data.map((row : any, index : any) => (
+                            <tr  onClick={() => this.rowClick(row)}>
+                                <th  scope="row"></th>
+                                
+                            {this.props.cols.map((col : any, index : any) => (
+                                <td>              {this.renderValue(row, col)}
+</td>
+                            ))}
+                            </tr>
+                        ))}
                     </tbody>
                 </Table>
             </div>
         </Container>
     )
+    }
 }
-
 
 export default TableComp;

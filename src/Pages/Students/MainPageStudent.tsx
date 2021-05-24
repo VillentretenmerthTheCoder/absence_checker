@@ -16,15 +16,28 @@ const  MainPageStudent  = (props : any) => {
         props.fetchCourses();
         console.log(props.courses);
         console.log(props.enrollments);
+        console.log(data);
         document.body.style.backgroundColor = "#dee2e6";
     })
+    const cols = [
+        { key: 'Id', title: 'Id' },
+        { key: 'Teacher', title: 'Teacher' },
+        { key: 'Subject', title: 'Subject' },
+      ];
+
+
+      const data = [
+        { Id: 1, Teacher: "Andrea", Subject: "DLS" },
+        {  Id: 2, Teacher: "Andrea", Subject: "DLS" },
+        {  Id: 3, Teacher: "Andrea", Subject: "DLS" },
+      ];
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
                         <Sidebar/>
-                        <TableComp/>
+                        <TableComp cols={cols} data={data} onClick={() => console.log("AA")}  />
                     </Row>
                 </Container>
             </div>
