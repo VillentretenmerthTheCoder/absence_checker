@@ -6,6 +6,8 @@ import { Route, Switch, RouteComponentProps, withRouter, BrowserRouter, Redirect
 import SubmitCodeStudent from './Pages/Students/SubmitCodeStudent';
 import MainPageAdmin from './Pages/Admins/MainPageAdmin';
 import MainPageTeachers from './Pages/Teachers/MainPageTeachers';
+import CreateStudents from './Pages/Admins/CreateStudents';
+import CreateTeachers from './Pages/Admins/CreateTeachers';
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
           <Route path="/student-main" component={MainPageStudent}/>
           <Route path="/student-submit" component={SubmitCodeStudent}/>
           <Route path="/admin-main" component={MainPageAdmin}/>
+          <Route path="/admin/create-students" component={CreateStudents}/>
+          <Route path="/admin/create-teachers" component={CreateTeachers}/>
+
           <Route path="/teacher-main" component={MainPageTeachers}/>
 
 

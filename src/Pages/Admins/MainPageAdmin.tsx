@@ -23,7 +23,7 @@ const  MainPageAdmin  = (props : any) => {
         { key: 'student_id', title: 'Id' },
         { key: 'name', title: 'Name' },
         { key: 'surname', title: 'Surname' },
-        { key: 'phone_number', title: 'Phone' },
+        { key: 'mobile_phone', title: 'Phone' },
         { key: 'school_email', title: 'Email' },
 
       ];
