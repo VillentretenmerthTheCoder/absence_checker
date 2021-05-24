@@ -22,7 +22,6 @@ const  SubmitCodeStudent  = () => {
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0, width: '100%'}}>    
                             <Container style={{position: 'relative'}} >
-
                                 <div className={styles.SubmitCodeWrapper}>
                                     <div className={styles.BoxSubmit}>
                                         <Form className={styles.CodeForm} >
