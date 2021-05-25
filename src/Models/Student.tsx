@@ -1,6 +1,6 @@
 
 export type Student = {
-    student_id: number,
+    student_id: string,
     name: string,
     surname: string,
     school_email: string,

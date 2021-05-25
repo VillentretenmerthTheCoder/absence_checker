@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
@@ -7,21 +7,24 @@ import Student from '../../Models/Student';
 const  EditStudents  = (props : any) => {
     useEffect(() => {
         document.body.style.backgroundColor = "#dee2e6";
-    },[]);
 
-    let student_id = (document.getElementById("0") as HTMLInputElement).valueAsNumber;
-    let name = (document.getElementById("1") as HTMLInputElement).value;
-    let surname = (document.getElementById("2") as HTMLInputElement).value;
-    let email = (document.getElementById("3") as HTMLInputElement).value;
-    let phone_number = (document.getElementById("4") as HTMLInputElement).value;
-    let password = (document.getElementById("5") as HTMLInputElement).value;
+        
+    },[]);
+    
+    const [student_id, setStudent_id] = useState('');
+    const [name, setName] = useState('');
+    const [surname, setSurname] = useState('');
+    const [school_email, setSchool_email] = useState('');
+    const [phone_number, setPhone_number] = useState('');
+    const [password, setPassword] = useState('');
+
 
     let data:Student = {
 
         student_id:student_id,
         name:name,
         surname:surname,
-        school_email:email,
+        school_email:school_email,
         phone_number:phone_number,
         password:password
     }
@@ -41,19 +44,19 @@ const  EditStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Student_id</Label>
-                                <Input id="0" type="text" name="name" />
+                                <input id="0" type="text" name="student_id" value={student_id} onChange={e => setStudent_id(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Name</Label>
-                                <Input id="1" type="text" name="name" />
+                                <input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword">Surname</Label>
-                                <Input id="2" type="text" name="surname"  />
+                                <input id="2" type="text" name="surname" value={surname} onChange={e => setSurname(e.target.value)} />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -61,19 +64,19 @@ const  EditStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Email</Label>
-                                <Input id="3" type="email" name="email"  />
+                                <input id="1" type="email" name="school_email" value={school_email} onChange={e => setSchool_email(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword">Phone number</Label>
-                                <Input id="4" type="text" name="password"  />
+                                <input id="1" type="text" name="phone_number" value={phone_number} onChange={e => setPhone_number(e.target.value)} />
                             </FormGroup>
                         </Col>
                     </Row>
                     <FormGroup>
                         <Label for="exampleAddress">Password</Label>
-                        <Input id="5" type="text" name="address"  />
+                        <input id="1" type="text" name="password" value={password} onChange={e => setPassword(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
                     <Button style={{width: '33%'}} onClick={callUpdateStudents}>Edit Student</Button>
