@@ -1,5 +1,6 @@
 import azurehost from '../Api/azurehost';
 
+//GETS
 
 export const fetchEnrollments = () => { return (dispatch) => {
     azurehost.get('/enrollments').then(response => {
@@ -32,3 +33,9 @@ export const fetchTeachers = () => {return (dispatch) =>{
         dispatch({type: 'FETCH_TEACHERS', payload: response.data})
     })
 }};
+
+// POSTS
+
+export const updateStudent = (data) =>{
+    return azurehost.put('/student',data)
+};
