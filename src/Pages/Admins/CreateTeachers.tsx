@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
-import {postStudent, updateStudent} from '../../Actions/Index';
+import {postStudent, postTeachers, updateStudent} from '../../Actions/Index';
 import Student from '../../Models/Student';
 const  CreateTeachers  = (props : any) => {
     useEffect(() => {
@@ -28,7 +28,7 @@ const  CreateTeachers  = (props : any) => {
     }
 
         const callUpdateStudents = () =>{
-            postStudent(data);
+            postTeachers(data);
         }
 
         return(
