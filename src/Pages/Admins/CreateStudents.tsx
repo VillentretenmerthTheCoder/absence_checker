@@ -18,13 +18,13 @@ const  CreateStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Name</Label>
-                                <Input type="email" name="name" />
+                                <Input type="text" name="name" />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword">Surname</Label>
-                                <Input type="password" name="surname"  />
+                                <Input type="text" name="surname"  />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -38,7 +38,7 @@ const  CreateStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword">Phone number</Label>
-                                <Input type="password" name="password"  />
+                                <Input type="text" name="password"  />
                             </FormGroup>
                         </Col>
                     </Row>

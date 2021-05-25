@@ -8,6 +8,7 @@ import MainPageAdmin from './Pages/Admins/MainPageAdmin';
 import MainPageTeachers from './Pages/Teachers/MainPageTeachers';
 import CreateStudents from './Pages/Admins/CreateStudents';
 import CreateTeachers from './Pages/Admins/CreateTeachers';
+import CreateCourse from './Pages/Admins/CreateCourse';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/admin-main" component={MainPageAdmin}/>
           <Route path="/admin/create-students" component={CreateStudents}/>
           <Route path="/admin/create-teachers" component={CreateTeachers}/>
+          <Route path="/admin/create-courses" component={CreateCourse}/>
 
           <Route path="/teacher-main" component={MainPageTeachers}/>
 

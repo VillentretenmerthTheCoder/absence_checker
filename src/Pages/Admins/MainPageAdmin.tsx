@@ -74,7 +74,7 @@ const  MainPageAdmin  = (props : any) => {
                                     <CardTitle tag="h5">Create new Course</CardTitle>
                                     <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus possimus vitae atque quos doloribus corrupti neque quasi! Dicta iste ab, aliquid adipisci ad perferendis eius eum ipsum natus impedit?.</CardText>
                                     <div className={styles.buttonWrapper}>
-                                        <Button>Go to page</Button>
+                                        <Button onClick={() => props.history.push(`admin/create-courses`)}>Go to page</Button>
                                     </div>                                
                                 </CardBody>
                             </Card>
@@ -119,11 +119,7 @@ const  MainPageAdmin  = (props : any) => {
                     </Row>
  
 
-                    <Row style={{padding: 0, margin: 0}}> 
-
-                        <TableComp cols={cols} data={props.students } onClick={() => console.log("AA")}  />
-                    </Row>
-                   
+              
                    
                    
                 </Container>
