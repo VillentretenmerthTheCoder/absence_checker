@@ -10,6 +10,8 @@ import CreateStudents from './Pages/Admins/CreateStudents';
 import CreateTeachers from './Pages/Admins/CreateTeachers';
 import CreateCourse from './Pages/Admins/CreateCourse';
 import ListofStudents from './Pages/Admins/ListofStudents';
+import ListOfCourses from './Pages/Admins/ListOfCourses';
+import ListOfTeachers from './Pages/Admins/ListOfTeachers';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path="/admin/create-teachers" component={CreateTeachers}/>
           <Route path="/admin/create-courses" component={CreateCourse}/>
           <Route path="/admin/see-students" component={ListofStudents}/>
+          <Route path="/admin/see-courses" component={ListOfCourses}/>
+          <Route path="/admin/see-teachers" component={ListOfTeachers}/>
 
           <Route path="/teacher-main" component={MainPageTeachers}/>
 

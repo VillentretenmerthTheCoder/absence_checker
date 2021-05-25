@@ -23,20 +23,6 @@ const  MainPageAdmin  = (props : any) => {
         document.body.style.backgroundColor = "#dee2e6";
     },[]);
 
-    const cols = [
-        { key: 'student_id', title: 'Id' },
-        { key: 'name', title: 'Name' },
-        { key: 'surname', title: 'Surname' },
-        { key: 'mobile_phone', title: 'Phone' },
-        { key: 'school_email', title: 'Email' },
-
-      ];
-
-      const data = [
-        {  key: "Id", title: "1"},
-        { key: 'Teacher', title: 'Andrea' },
-        { key: 'Subject', title: 'DLS' },
-      ];
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
@@ -88,7 +74,7 @@ const  MainPageAdmin  = (props : any) => {
                                     <CardTitle tag="h5">List all Students</CardTitle>
                                     <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus possimus vitae atque quos doloribus corrupti neque quasi! Dicta iste ab, aliquid adipisci ad perferendis eius eum ipsum natus impedit?.</CardText>
                                     <div className={styles.buttonWrapper}>
-                                    <Button>Go to page</Button>
+                                    <Button onClick={() => props.history.push(`admin/see-students`)}>Go to page</Button>
                                 </div>                                </CardBody>
                             </Card>
                         </Col>
@@ -99,7 +85,7 @@ const  MainPageAdmin  = (props : any) => {
                                     <CardTitle tag="h5">List all Teachers</CardTitle>
                                     <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus possimus vitae atque quos doloribus corrupti neque quasi! Dicta iste ab, aliquid adipisci ad perferendis eius eum ipsum natus impedit?.</CardText>
                                     <div className={styles.buttonWrapper}>
-                                        <Button>Go to page</Button>
+                                    <Button onClick={() => props.history.push(`admin/see-teachers`)}>Go to page</Button>
                                     </div>
                                 </CardBody>
                             </Card>
@@ -111,7 +97,7 @@ const  MainPageAdmin  = (props : any) => {
                                     <CardTitle tag="h5">List all Subjects</CardTitle>
                                     <CardText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil ducimus possimus vitae atque quos doloribus corrupti neque quasi! Dicta iste ab, aliquid adipisci ad perferendis eius eum ipsum natus impedit?.</CardText>
                                     <div className={styles.buttonWrapper}>
-                                        <Button>Go to page</Button>
+                                    <Button onClick={() => props.history.push(`admin/see-courses`)}>Go to page</Button>
                                     </div>                                
                                 </CardBody>
                             </Card>

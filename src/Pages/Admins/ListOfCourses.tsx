@@ -11,25 +11,18 @@ import { connect } from 'react-redux';
 import {fetchCourses, fetchEnrollments, fetchStudents} from '../../Actions/Index'
 import Courses from '../../Models/Courses';
 
-const  ListOfStudents  = (props : any) => {
+const  ListOfCourses  = (props : any) => {
     const openCourse = (course : Courses) => props.history.push(`/student-edit/${course.course_id}`);
 
     useEffect(() => {
-        props.fetchEnrollments();
         props.fetchCourses();
-        props.fetchStudents()
-        console.log(props.students);
        /*  console.log(props.courses);
         console.log(props.enrollments); */
         document.body.style.backgroundColor = "#dee2e6";
-        console.log(props.students);
     },[]);
     const cols = [
-        {key: 'student_id', title:'Student_id'},
-        { key: 'name', title: 'Name' },
-        { key: 'surname', title: 'Surname' },
-        { key: 'school_email', title: 'School email' },
-        { key: 'phone_number', title: 'Phone number' },
+        { key: 'course_id', title: 'Course_id' },
+        { key: 'course_name', title: 'Course_name' },
       ];
 
 
@@ -39,7 +32,7 @@ const  ListOfStudents  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <TableComp cols={cols} data={props.students} TableTitle={"List of students currently enrolled"} onClick={openCourse}  />
+                        <TableComp cols={cols} data={props.courses} TableTitle={"List of current courses"} onClick={openCourse}  />
                     </Row>
                 </Container>
             </div>
@@ -47,13 +40,12 @@ const  ListOfStudents  = (props : any) => {
 }
 
 const mapStateToProps = (state : any) => {
-    return { enrollments : state.enrollments,
+    return {
         courses: state.courses,
-        students:state.students
     };
 }
 
-export default connect(mapStateToProps, {fetchEnrollments, fetchCourses, fetchStudents})(ListOfStudents);
+export default connect(mapStateToProps, {fetchCourses})(ListOfCourses);
 
 
 // export default MainPageStudent;
