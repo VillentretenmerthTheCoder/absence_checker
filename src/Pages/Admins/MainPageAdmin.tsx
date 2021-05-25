@@ -21,7 +21,7 @@ const  MainPageAdmin  = (props : any) => {
         props.fetchStudents();
        
         document.body.style.backgroundColor = "#dee2e6";
-    })
+    },[]);
 
     const cols = [
         { key: 'student_id', title: 'Id' },

@@ -17,10 +17,10 @@ const  MainPageStudent  = (props : any) => {
     useEffect(() => {
         props.fetchEnrollments();
         props.fetchCourses();
-       /*  console.log(props.courses);
-        console.log(props.enrollments); */
+       console.log(props.courses);
+        console.log(props.enrollments);
         document.body.style.backgroundColor = "#dee2e6";
-    })
+    },[]);
     const cols = [
         { key: 'course_id', title: 'Id' },
         { key: 'course_name', title: 'Course' },
@@ -38,7 +38,7 @@ const  MainPageStudent  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <TableComp cols={cols} data={props.courses} onClick={openAttendance}  />
+                        <TableComp cols={cols} data={props.courses} TableTitle={"List of available courses"} onClick={openAttendance}  />
                     </Row>
                 </Container>
             </div>

@@ -5,7 +5,7 @@ import styles from './MainPage.module.scss';
 const  CreateStudents  = (props : any) => {
     useEffect(() => {
         document.body.style.backgroundColor = "#dee2e6";
-    })
+    },[]);
 
         return(
             <div className={styles.Wrapper}>

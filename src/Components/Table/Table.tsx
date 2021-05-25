@@ -8,7 +8,10 @@ export type ListViewColumn = {
     cols: Array<ListViewColumn>;
     data: Array<any>;
     onClick: (row: any) => void;
+    TableTitle: string;
   };
+
+
   
 class TableComp extends Component<DataTableProps>{
     renderValue = (row: any, column: ListViewColumn) => {
@@ -20,7 +23,7 @@ class TableComp extends Component<DataTableProps>{
     return(
         <Container style={{position: 'relative'}} >
             <div>
-                <h2 style={{marginTop: '40px', display: 'flex', justifyContent: 'center'}}>List of available courses</h2>   
+                <h2 style={{marginTop: '40px', display: 'flex', justifyContent: 'center'}}>{this.props.TableTitle}</h2>   
                 <Table hover style={{backgroundColor: 'white', marginTop: '40px'}}>
                     <thead>
                         <tr>

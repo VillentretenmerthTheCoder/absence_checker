@@ -15,7 +15,7 @@ const  SubmitCodeStudent  = () => {
     const toggle = () => setDropdownOpen(prevState => !prevState);
     useEffect(() => {
             document.body.style.backgroundColor = "#dee2e6";
-    })
+    },[]);
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
