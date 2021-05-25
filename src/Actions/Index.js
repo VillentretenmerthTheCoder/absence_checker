@@ -37,5 +37,25 @@ export const fetchTeachers = () => {return (dispatch) =>{
 // POSTS
 
 export const updateStudent = (data) =>{
-    return azurehost.put('/student',data)
+    return azurehost.put('/student',data).then(response =>{
+        console.log(response);
+    })
+};
+
+export const postStudent = (data) =>{
+    return azurehost.post('/student',data).then(response =>{
+        console.log(response);
+    })
+};
+
+export const postCourse = (data) =>{
+    return azurehost.post('/courses',data).then(response =>{
+        console.log(response);
+    })
+};
+
+export const postTeachers = (data) =>{
+    return azurehost.post('/teachers',data).then(response =>{
+        console.log(response);
+    })
 };

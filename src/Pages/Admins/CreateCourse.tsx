@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
+import { postCourse } from '../../Actions/Index';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
 const  CreateCourse  = (props : any) => {
@@ -7,6 +8,18 @@ const  CreateCourse  = (props : any) => {
         document.body.style.backgroundColor = "#dee2e6";
     },[]);
 
+    const[name,setName] = useState('')
+
+
+    let data={
+        course_name:name 
+    }
+
+    const callPostCourse = () =>{
+        postCourse(data)
+    }
+
+   
         return(
             <div className={styles.Wrapper}>
 
@@ -16,10 +29,10 @@ const  CreateCourse  = (props : any) => {
                 <Form className={styles.FormWrapper}>
                     <FormGroup>
                         <Label for="exampleAddress">Name of the course</Label>
-                        <Input type="text" name="address"  />
+                        <input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
-                    <Button style={{width: '33%'}}>Add Course</Button>
+                    <Button style={{width: '33%'}} onClick={callPostCourse}>Add Course</Button>
                     </Col>
 
                     </Form>

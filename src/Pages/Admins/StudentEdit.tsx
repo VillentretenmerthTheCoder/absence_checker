@@ -19,7 +19,7 @@ const  EditStudents  = (props : any) => {
     const [password, setPassword] = useState('');
 
 
-    let data:Student = {
+    let data = {
 
         student_id:student_id,
         name:name,
