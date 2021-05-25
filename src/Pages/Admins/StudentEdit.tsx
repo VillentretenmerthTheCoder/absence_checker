@@ -30,7 +30,7 @@ const  EditStudents  = (props : any) => {
     }
 
         const callUpdateStudents = () =>{
-            updateStudent(data);
+            updateStudent(data,data.student_id);
         }
 
         return(
