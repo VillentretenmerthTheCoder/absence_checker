@@ -10,20 +10,27 @@ import TableComp from '../../Components/Table/Table';
 import { connect } from 'react-redux';
 import {fetchCourses, fetchEnrollments, fetchStudents} from '../../Actions/Index'
 import Courses from '../../Models/Courses';
+import Student from '../../Models/Student';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 
 const  ListOfStudents  = (props : any) => {
-    const openCourse = (course : Courses) => props.history.push(`/student-edit/${course.course_id}`);
+    const openStudent = (student : Student) => props.history.push({
+        pathname:`/admin/edit-student/${student.student_id}`,
+        state:{current_id: student.student_id}
+    });
 
     useEffect(() => {
         props.fetchEnrollments();
         props.fetchCourses();
         props.fetchStudents()
-        console.log(props.students);
        /*  console.log(props.courses);
         console.log(props.enrollments); */
         document.body.style.backgroundColor = "#dee2e6";
-        console.log(props.students);
     },[]);
+    
+    
+   
+   
     const cols = [
         {key: 'student_id', title:'Student_id'},
         { key: 'name', title: 'Name' },
@@ -39,7 +46,7 @@ const  ListOfStudents  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <TableComp cols={cols} data={props.students} TableTitle={"List of students currently enrolled"} onClick={openCourse}  />
+                        <TableComp cols={cols} data={props.students} TableTitle={"List of students currently enrolled"} onClick={openStudent}  />
                     </Row>
                 </Container>
             </div>
@@ -53,7 +60,7 @@ const mapStateToProps = (state : any) => {
     };
 }
 
-export default connect(mapStateToProps, {fetchEnrollments, fetchCourses, fetchStudents})(ListOfStudents);
+export default withRouter(connect(mapStateToProps, {fetchEnrollments, fetchCourses, fetchStudents})(ListOfStudents));
 
 
 // export default MainPageStudent;

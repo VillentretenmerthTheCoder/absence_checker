@@ -1,13 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
 import {updateStudent} from '../../Actions/Index';
 import Student from '../../Models/Student';
+import {fetchStudent} from '../../Actions/Index'
+import {connect} from 'react-redux';
 const  EditStudents  = (props : any) => {
     useEffect(() => {
+        props.fetchStudent(props.history.location.state.current_id);
+        console.log(props.history.location.state.current_id)
+        console.log(props.student)
+        setStudent_id(props.student.student_id)
+        setName(props.student.name)
+        setSurname(props.student.surname)
+        setSchool_email(props.student.school_email)
+        setPhone_number(props.student.phone_number)
+        setPassword(props.student.password)
         document.body.style.backgroundColor = "#dee2e6";
-
+  
         
     },[]);
     
@@ -17,6 +29,12 @@ const  EditStudents  = (props : any) => {
     const [school_email, setSchool_email] = useState('');
     const [phone_number, setPhone_number] = useState('');
     const [password, setPassword] = useState('');
+
+    type Props = {};
+    type ComposedProps = Props & RouteComponentProps<{
+  current_id: string;
+}>;
+
 
 
     let data = {
@@ -44,7 +62,7 @@ const  EditStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Student_id</Label>
-                                <input id="0" type="text" name="student_id" value={student_id} onChange={e => setStudent_id(e.target.value)} />
+                                <input id="0"  type="text" name="student_id" value={student_id} onChange={e => setStudent_id(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
@@ -92,8 +110,14 @@ const  EditStudents  = (props : any) => {
         )
 }
 
+const mapStateToProps = (state : any) => {
+    return { 
+        student:state.student
+    };
+}
 
-export default EditStudents;
+
+export default connect(mapStateToProps,{fetchStudent})(EditStudents);
 
 
 // export default MainPageStudent;

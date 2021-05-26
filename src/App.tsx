@@ -32,7 +32,7 @@ function App() {
           <Route path="/admin/see-students" component={ListofStudents}/>
           <Route path="/admin/see-courses" component={ListOfCourses}/>
           <Route path="/admin/see-teachers" component={ListOfTeachers}/>
-          <Route path="/admin/edit-student" component={EditStudents}/>
+          <Route path="/admin/edit-student/:current_id" component={EditStudents}/>
 
           <Route path="/teacher-main" component={MainPageTeachers}/>
 
