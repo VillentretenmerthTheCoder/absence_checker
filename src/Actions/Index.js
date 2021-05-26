@@ -89,3 +89,19 @@ export const postTeachers = (data) =>{
         console.log(response);
     })
 };
+
+export const deleteStudent = (id) =>{
+    return azurehost.delete('/student/'+id).then(response=>{
+        console.log(response);
+    })
+};
+export const deleteCourse = (id) =>{
+    return azurehost.delete('/courses/'+id).then(response=>{
+        console.log(response);
+    })
+};
+export const deleteTeacher = (id) =>{
+    return azurehost.delete('/teachers/'+id).then(response=>{
+        console.log(response);
+    })
+};

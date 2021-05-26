@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
-import {updateTeacher} from '../../Actions/Index';
+import {updateTeacher, deleteTeacher} from '../../Actions/Index';
 import Student from '../../Models/Student';
 import {fetchTeacher} from '../../Actions/Index'
 import {connect} from 'react-redux';
@@ -52,6 +52,11 @@ const  EditTeachers  = (props : any) => {
             updateTeacher(data,data.teacher_id);
         }
 
+        const callDeleteTeacher = () =>{
+            deleteTeacher(data.teacher_id);
+        }
+
+
         return(
             <div className={styles.Wrapper}>
 
@@ -99,6 +104,7 @@ const  EditTeachers  = (props : any) => {
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
                     <Button style={{width: '33%'}} onClick={callUpdateStudents}>Edit Teacher</Button>
+                    <Button style={{width: '33%'}} onClick={callDeleteTeacher}>Delete Teacher</Button>
                     </Col>
 
                     </Form>

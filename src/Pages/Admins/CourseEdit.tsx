@@ -3,7 +3,7 @@ import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
-import {postCourse, updateCourse} from '../../Actions/Index';
+import {postCourse, updateCourse, deleteCourse} from '../../Actions/Index';
 import Student from '../../Models/Student';
 import {fetchCourse} from '../../Actions/Index'
 import {connect} from 'react-redux';
@@ -42,12 +42,16 @@ const  EditCourses  = (props : any) => {
             updateCourse(data,data.course_id);
         }
 
+        const callDeleteCourse = () =>{
+            deleteCourse(data.course_id);
+        }
+
         return(
             <div className={styles.Wrapper}>
 
                 <NavigationBar/>
                 <Container  style={{padding: 0}}>
-                    <h2 className={styles.createUserHeadline}>Edit Student</h2>
+                    <h2 className={styles.createUserHeadline}>Edit Course</h2>
                 <Form className={styles.FormWrapper}>
  
                     <FormGroup>
@@ -59,7 +63,8 @@ const  EditCourses  = (props : any) => {
                         <input id="1" type="text" name="name" value={course_name} onChange={e => setCourse_name(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
-                    <Button style={{width: '33%'}} onClick={callUpdateCourse}>Edit Student</Button>
+                    <Button style={{width: '33%'}} onClick={callUpdateCourse}>Edit Course</Button>
+                    <Button style={{width: '33%'}} onClick={callDeleteCourse}>Delete Course</Button>
                     </Col>
 
                     </Form>
