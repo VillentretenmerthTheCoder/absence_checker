@@ -10,14 +10,18 @@ import {connect} from 'react-redux';
 import { threadId } from 'worker_threads';
 import BackButton from '../../Components/BackButton/BackButton';
 import Footer from '../../Components/Footer/Footer';
+
+
 const  EditTeachers  = (props : any) => {
   
+
     const [teacher_id, setTeacher_id] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [school_email, setSchool_email] = useState('');
     const [phone_number, setPhone_number] = useState('');
     const [password, setPassword] = useState('');
+
 
     
     let data = {
@@ -46,12 +50,21 @@ const  EditTeachers  = (props : any) => {
     
   
     
-  
-
 
 
         const callUpdateStudents = () =>{
-            updateTeacher(data,data.teacher_id);
+            if(
+                password !== "" &&
+                school_email !== ""){
+                    updateTeacher(data,data.teacher_id);
+                    window.alert("Valid Form")
+                    props.history.push(`../../admin-main`)
+
+
+            }
+            else{
+                window.alert('Invalid Form')
+            }
         }
 
         const callDeleteTeacher = () =>{
@@ -67,7 +80,7 @@ const  EditTeachers  = (props : any) => {
 
                 <Container  style={{padding: 0}}>
                     <h2 className={styles.createUserHeadline}>Edit Teacher</h2>
-                <Form className={styles.FormWrapper}>
+                <Form   className={styles.FormWrapper}>
                     <Row form>
                         <Col md={6}>
                             <FormGroup>
@@ -112,7 +125,6 @@ const  EditTeachers  = (props : any) => {
                     </Col>
 
                     </Form>
-
                    
                 </Container>
                 <Footer/>

@@ -30,7 +30,14 @@ const  CreateTeachers  = (props : any) => {
     }
 
         const callUpdateStudents = () =>{
-            postTeachers(data);
+            if(name !== ""){
+                postTeachers(data);
+                window.alert("Valid Form");
+                props.history.push(`../../admin-main`)
+            }
+            else{
+                 window.alert('Invalid Form')
+            }
         }
 
         return(

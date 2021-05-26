@@ -41,7 +41,14 @@ const  EditCourses  = (props : any) => {
 
 
         const callUpdateCourse = () =>{
-            updateCourse(data,data.course_id);
+                if(course_name !== ""){
+                        updateCourse(data,data.course_id);
+                        window.alert("Valid Form");
+                        props.history.push(`../../admin-main`)
+                }
+                else{
+                    window.alert('Invalid Form')
+            }
         }
 
         const callDeleteCourse = () =>{

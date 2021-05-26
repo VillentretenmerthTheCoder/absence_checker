@@ -18,7 +18,14 @@ const  CreateCourse  = (props : any) => {
     }
 
     const callPostCourse = () =>{
-        postCourse(data)
+        if(name !== ""){
+            postCourse(data)
+            window.alert("Valid Form");
+            props.history.push(`../../admin-main`)
+        }
+        else{
+             window.alert('Invalid Form')
+        }
     }
 
    

@@ -51,8 +51,16 @@ const  EditStudents  = (props : any) => {
 
 
         const callUpdateStudents = () =>{
-            updateStudent(data,data.student_id);
+            if(password !== "" && school_email !== ""){
+                    updateStudent(data,data.student_id);
+                    window.alert("Valid Form")
+                    props.history.push(`../../admin-main`)
+            }
+            else{
+                window.alert('Invalid Form')
+            }
         }
+
 
         const callDeleteStudent = () =>{
             deleteStudent(data.student_id);
