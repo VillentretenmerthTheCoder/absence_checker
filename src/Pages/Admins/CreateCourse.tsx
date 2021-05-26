@@ -29,7 +29,7 @@ const  CreateCourse  = (props : any) => {
                 <Form className={styles.FormWrapper}>
                     <FormGroup>
                         <Label for="exampleAddress">Name of the course</Label>
-                        <input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
+                        <Input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
                     <Button style={{width: '33%'}} onClick={callPostCourse}>Add Course</Button>

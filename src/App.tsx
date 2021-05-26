@@ -37,7 +37,6 @@ function App() {
           <Route path="/admin/edit-student/:current_id" component={EditStudents}/>
           <Route path="/admin/edit-courses/:current_id" component={CourseEdit}/>
           <Route path="/admin/edit-teachers/:current_id" component={TeacherEdit}/>
-
           <Route path="/teacher-main" component={MainPageTeachers}/>
 
 

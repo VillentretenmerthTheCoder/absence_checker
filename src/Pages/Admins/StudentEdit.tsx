@@ -8,6 +8,7 @@ import Student from '../../Models/Student';
 import {fetchStudent} from '../../Actions/Index'
 import {connect} from 'react-redux';
 import { threadId } from 'worker_threads';
+import Footer from '../../Components/Footer/Footer';
 const  EditStudents  = (props : any) => {
   
     const [student_id, setStudent_id] = useState('');
@@ -67,19 +68,19 @@ const  EditStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Student_id</Label>
-                                <input id="0"  type="text" name="student_id" value={student_id} onChange={e => setStudent_id(e.target.value)} />
+                                <Input id="0"  type="text" name="student_id" value={student_id} onChange={e => setStudent_id(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Name</Label>
-                                <input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
+                                <Input id="1" type="text" name="name" value={name} onChange={e => setName(e.target.value)} />
                             </FormGroup>
                         </Col>
-                        <Col md={6}>
+                        <Col md={12}>
                             <FormGroup>
                                 <Label for="examplePassword">Surname</Label>
-                                <input id="2" type="text" name="surname" value={surname} onChange={e => setSurname(e.target.value)} />
+                                <Input id="2" type="text" name="surname" value={surname} onChange={e => setSurname(e.target.value)} />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -87,19 +88,19 @@ const  EditStudents  = (props : any) => {
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="exampleEmail">Email</Label>
-                                <input id="1" type="email" name="school_email" value={school_email} onChange={e => setSchool_email(e.target.value)} />
+                                <Input id="1" type="email" name="school_email" value={school_email} onChange={e => setSchool_email(e.target.value)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="examplePassword">Phone number</Label>
-                                <input id="1" type="text" name="phone_number" value={phone_number} onChange={e => setPhone_number(e.target.value)} />
+                                <Input id="1" type="text" name="phone_number" value={phone_number} onChange={e => setPhone_number(e.target.value)} />
                             </FormGroup>
                         </Col>
                     </Row>
                     <FormGroup>
                         <Label for="exampleAddress">Password</Label>
-                        <input id="1" type="text" name="password" value={password} onChange={e => setPassword(e.target.value)} />
+                        <Input id="1" type="text" name="password" value={password} onChange={e => setPassword(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
                     <Button style={{width: '33%'}} onClick={callUpdateStudents}>Edit Student</Button>
@@ -110,6 +111,7 @@ const  EditStudents  = (props : any) => {
 
                    
                 </Container>
+                <Footer/>
   
     
             </div>

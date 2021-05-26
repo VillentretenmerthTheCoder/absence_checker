@@ -56,11 +56,11 @@ const  EditCourses  = (props : any) => {
  
                     <FormGroup>
                         <Label for="exampleAddress">Id  </Label>
-                        <input id="1" type="text" name="name" value={course_id} onChange={e => setCourse_id(e.target.value)} />
+                        <Input id="1" type="text" name="name" value={course_id} onChange={e => setCourse_id(e.target.value)} />
                     </FormGroup>
                     <FormGroup>
                         <Label for="exampleAddress">Name  </Label>
-                        <input id="1" type="text" name="name" value={course_name} onChange={e => setCourse_name(e.target.value)} />
+                        <Input id="1" type="text" name="name" value={course_name} onChange={e => setCourse_name(e.target.value)} />
                     </FormGroup>
                     <Col className={styles.buttonWrapper}  md={12}>
                     <Button style={{width: '33%'}} onClick={callUpdateCourse}>Edit Course</Button>
