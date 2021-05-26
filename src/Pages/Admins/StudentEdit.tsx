@@ -7,22 +7,9 @@ import {updateStudent} from '../../Actions/Index';
 import Student from '../../Models/Student';
 import {fetchStudent} from '../../Actions/Index'
 import {connect} from 'react-redux';
+import { threadId } from 'worker_threads';
 const  EditStudents  = (props : any) => {
-    useEffect(() => {
-        props.fetchStudent(props.history.location.state.current_id);
-        console.log(props.history.location.state.current_id)
-        console.log(props.student)
-        setStudent_id(props.student.student_id)
-        setName(props.student.name)
-        setSurname(props.student.surname)
-        setSchool_email(props.student.school_email)
-        setPhone_number(props.student.phone_number)
-        setPassword(props.student.password)
-        document.body.style.backgroundColor = "#dee2e6";
   
-        
-    },[]);
-    
     const [student_id, setStudent_id] = useState('');
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
@@ -30,13 +17,7 @@ const  EditStudents  = (props : any) => {
     const [phone_number, setPhone_number] = useState('');
     const [password, setPassword] = useState('');
 
-    type Props = {};
-    type ComposedProps = Props & RouteComponentProps<{
-  current_id: string;
-}>;
-
-
-
+    
     let data = {
 
         student_id:student_id,
@@ -46,6 +27,29 @@ const  EditStudents  = (props : any) => {
         phone_number:phone_number,
         password:password
     }
+  
+    useEffect(() => {
+         
+        props.fetchStudent(props.history.location.state.current_id)
+        console.log(props.history.location.state.current_id)
+  
+        console.log(props.student)
+        setStudent_id(props.student.student_id)
+        setName(props.student.name)
+        setSurname(props.student.surname)
+        setSchool_email(props.student.school_email)
+        setPhone_number(props.student.phone_number)
+        setPassword(props.student.password)
+        document.body.style.backgroundColor = "#dee2e6";
+        
+        
+    },[props.student.student_id]);
+    
+  
+    
+  
+
+
 
         const callUpdateStudents = () =>{
             updateStudent(data,data.student_id);
