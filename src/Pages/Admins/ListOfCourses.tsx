@@ -12,7 +12,11 @@ import {fetchCourses, fetchEnrollments, fetchStudents} from '../../Actions/Index
 import Courses from '../../Models/Courses';
 
 const  ListOfCourses  = (props : any) => {
-    const openCourse = (course : Courses) => props.history.push(`/student-edit/${course.course_id}`);
+    const openCourse = (course : Courses) => props.history.push({
+        pathname:`/admin/edit-courses/${course.course_id}`,
+        state:{current_id: course.course_id}
+    });
+
 
     useEffect(() => {
         props.fetchCourses();

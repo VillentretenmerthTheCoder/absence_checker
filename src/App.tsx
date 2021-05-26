@@ -13,6 +13,8 @@ import ListofStudents from './Pages/Admins/ListofStudents';
 import ListOfCourses from './Pages/Admins/ListOfCourses';
 import ListOfTeachers from './Pages/Admins/ListOfTeachers';
 import EditStudents from './Pages/Admins/StudentEdit';
+import CourseEdit from './Pages/Admins/CourseEdit';
+import TeacherEdit from './Pages/Admins/TeacherEdit';
 
 function App() {
   return (
@@ -33,6 +35,8 @@ function App() {
           <Route path="/admin/see-courses" component={ListOfCourses}/>
           <Route path="/admin/see-teachers" component={ListOfTeachers}/>
           <Route path="/admin/edit-student/:current_id" component={EditStudents}/>
+          <Route path="/admin/edit-courses/:current_id" component={CourseEdit}/>
+          <Route path="/admin/edit-teachers/:current_id" component={TeacherEdit}/>
 
           <Route path="/teacher-main" component={MainPageTeachers}/>
 

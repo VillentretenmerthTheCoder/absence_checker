@@ -10,9 +10,13 @@ import TableComp from '../../Components/Table/Table';
 import { connect } from 'react-redux';
 import {fetchCourses, fetchEnrollments, fetchStudents, fetchTeachers, fetchTeachings} from '../../Actions/Index'
 import Courses from '../../Models/Courses';
+import Teacher from '../../Models/Teacher';
 
 const  ListOfTeachers  = (props : any) => {
-    const openCourse = (course : Courses) => props.history.push(`/student-edit/${course.course_id}`);
+    const openTeacher = (teacher : Teacher) => props.history.push({
+        pathname:`/admin/edit-teachers/${teacher.teacher_id}`,
+        state:{current_id: teacher.teacher_id}
+    });
 
     useEffect(() => {
         props.fetchTeachers();
@@ -34,7 +38,7 @@ const  ListOfTeachers  = (props : any) => {
                 <NavigationBar/>
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
-                        <TableComp cols={cols} data={props.teachers} TableTitle={"List of Teachers"} onClick={openCourse}  />
+                        <TableComp cols={cols} data={props.teachers} TableTitle={"List of Teachers"} onClick={openTeacher}  />
                     </Row>
                 </Container>
             </div>

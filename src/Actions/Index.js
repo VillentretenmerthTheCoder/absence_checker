@@ -14,6 +14,12 @@ export const fetchCourses = () => { return (dispatch) => {
     })
 }};
 
+export const fetchCourse = (id) => { return (dispatch) => {
+    azurehost.get('/courses/'+id).then(response => {
+    dispatch({type: 'FETCH_COURSE', payload: response.data})
+    })
+}};
+
 export const fetchStudents = () => { return (dispatch) => {
     azurehost.get('/student').then(response => {
     dispatch({type: 'FETCH_STUDENTS', payload: response.data})
@@ -40,10 +46,28 @@ export const fetchTeachers = () => {return (dispatch) =>{
     })
 }};
 
+export const fetchTeacher = (id) =>{return (dispatch) =>{
+    azurehost.get('/teachers/'+id).then(response =>{
+        dispatch({type:'FETCH_TEACHER',payload:response.data})
+    })
+}};
+
 // POSTS
 
 export const updateStudent = (data,id) =>{
     return azurehost.put('/student/'+id,data).then(response =>{
+        console.log(response);
+    })
+};
+
+export const updateCourse = (data,id) =>{
+    return azurehost.put('/courses/'+id,data).then(response =>{
+        console.log(response);
+    })
+};
+
+export const updateTeacher = (data,id) =>{
+    return azurehost.put('/teachers/'+id,data).then(response =>{
         console.log(response);
     })
 };
