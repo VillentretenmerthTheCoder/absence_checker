@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import {fetchCourses, fetchEnrollments, fetchStudents, fetchTeachers, fetchTeachings} from '../../Actions/Index'
 import Courses from '../../Models/Courses';
 import Teacher from '../../Models/Teacher';
+import BackButton from '../../Components/BackButton/BackButton';
 
 const  ListOfTeachers  = (props : any) => {
     const openTeacher = (teacher : Teacher) => props.history.push({
@@ -36,11 +37,15 @@ const  ListOfTeachers  = (props : any) => {
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
+                <BackButton urlPath="../../admin-main"/>
+
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
                         <TableComp cols={cols} data={props.teachers} TableTitle={"List of Teachers"} onClick={openTeacher}  />
                     </Row>
                 </Container>
+                <Footer/>
+
             </div>
         )
 }

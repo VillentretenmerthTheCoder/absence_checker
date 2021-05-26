@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Form, FormGroup, Input, Label, Row } from 'reactstrap';
 import { postCourse } from '../../Actions/Index';
+import BackButton from '../../Components/BackButton/BackButton';
+import Footer from '../../Components/Footer/Footer';
 import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
 const  CreateCourse  = (props : any) => {
@@ -24,6 +26,7 @@ const  CreateCourse  = (props : any) => {
             <div className={styles.Wrapper}>
 
                 <NavigationBar/>
+                    <BackButton urlPath="../../admin-main"/>
                 <Container  style={{padding: 0}}>
                     <h2 className={styles.createUserHeadline}>Create a New Course</h2>
                 <Form className={styles.FormWrapper}>
@@ -39,7 +42,7 @@ const  CreateCourse  = (props : any) => {
 
                    
                 </Container>
-  
+            <Footer/>
     
             </div>
         )

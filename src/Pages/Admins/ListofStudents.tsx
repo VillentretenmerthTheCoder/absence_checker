@@ -12,6 +12,7 @@ import {fetchCourses, fetchEnrollments, fetchStudents} from '../../Actions/Index
 import Courses from '../../Models/Courses';
 import Student from '../../Models/Student';
 import { withRouter, RouteComponentProps } from 'react-router-dom';
+import BackButton from '../../Components/BackButton/BackButton';
 
 const  ListOfStudents  = (props : any) => {
     const openStudent = (student : Student) => props.history.push({
@@ -44,11 +45,15 @@ const  ListOfStudents  = (props : any) => {
         return(
             <div className={styles.Wrapper}>
                 <NavigationBar/>
+                <BackButton urlPath="../../admin-main"/>
+
                 <Container fluid style={{padding: 0}}>
                     <Row style={{padding: 0, margin: 0}}>                    
                         <TableComp cols={cols} data={props.students} TableTitle={"List of students currently enrolled"} onClick={openStudent}  />
                     </Row>
                 </Container>
+                <Footer/>
+
             </div>
         )
 }

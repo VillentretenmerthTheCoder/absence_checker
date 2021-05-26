@@ -109,7 +109,8 @@ const  MainPageAdmin  = (props : any) => {
                    
                    
                 </Container>
-  
+                <Footer/>
+
               
     
             </div>

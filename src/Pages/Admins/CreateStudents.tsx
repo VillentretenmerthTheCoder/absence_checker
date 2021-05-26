@@ -4,6 +4,8 @@ import NavigationBar from '../../Components/Navbar/NavigationBar';
 import styles from './MainPage.module.scss';
 import {postStudent, updateStudent} from '../../Actions/Index';
 import Student from '../../Models/Student';
+import BackButton from '../../Components/BackButton/BackButton';
+import Footer from '../../Components/Footer/Footer';
 const  CreateStudents  = (props : any) => {
     useEffect(() => {
         document.body.style.backgroundColor = "#dee2e6";
@@ -35,6 +37,8 @@ const  CreateStudents  = (props : any) => {
             <div className={styles.Wrapper}>
 
                 <NavigationBar/>
+                <BackButton urlPath="../../admin-main"/>
+
                 <Container  style={{padding: 0}}>
                     <h2 className={styles.createUserHeadline}>Add Student</h2>
                 <Form className={styles.FormWrapper}>
@@ -78,7 +82,8 @@ const  CreateStudents  = (props : any) => {
 
                    
                 </Container>
-  
+                <Footer/>
+
     
             </div>
         )

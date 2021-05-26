@@ -8,6 +8,8 @@ import Student from '../../Models/Student';
 import {fetchCourse} from '../../Actions/Index'
 import {connect} from 'react-redux';
 import { threadId } from 'worker_threads';
+import BackButton from '../../Components/BackButton/BackButton';
+import Footer from '../../Components/Footer/Footer';
 const  EditCourses  = (props : any) => {
   
     const [course_id, setCourse_id] = useState('');
@@ -50,6 +52,8 @@ const  EditCourses  = (props : any) => {
             <div className={styles.Wrapper}>
 
                 <NavigationBar/>
+                <BackButton urlPath="../../admin-main"/>
+
                 <Container  style={{padding: 0}}>
                     <h2 className={styles.createUserHeadline}>Edit Course</h2>
                 <Form className={styles.FormWrapper}>
@@ -71,7 +75,8 @@ const  EditCourses  = (props : any) => {
 
                    
                 </Container>
-  
+                <Footer/>
+
     
             </div>
         )
